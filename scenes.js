@@ -9,7 +9,7 @@ export function addWordScene() {
         },
         (ctx) => {
             ctx.wizard.state.wordInEnglish = ctx.message.text;  
-            ctx.reply(`Enter transcription for '${ctx.wizard.state.wordInEnglish}'`);
+            ctx.replyWithHTML(`Enter transcription for <b>'${ctx.wizard.state.wordInEnglish}'</b>`);
             return ctx.wizard.next(); // Переходим к следующему обработчику.
         },
         (ctx) => {
@@ -17,14 +17,14 @@ export function addWordScene() {
                 ctx.wizard.back(); // Вернуться к предыдущиму обработчику
             }
             ctx.wizard.state.wordTranscription = ctx.message.text;  
-            ctx.reply(`Enter Ukrainian translation for '${ctx.wizard.state.wordInEnglish}'`);
+            ctx.replyWithHTML(`Enter Ukrainian translation for <b>'${ctx.wizard.state.wordInEnglish}'</b>`);
             return ctx.wizard.next(); // Переходим к следующему обработчику.
         },
         (ctx) => {
             ctx.wizard.state.wordInUkrainian = ctx.message.text;
-            ctx.reply(`You have added a new word: ${ctx.wizard.state.wordInEnglish} [${ctx.wizard.state.wordTranscription}] - ${ctx.wizard.state.wordInUkrainian}`,getMainMenu()
+            ctx.replyWithHTML(`You have added a new word: <b>${ctx.wizard.state.wordInEnglish}</b> [<i>${ctx.wizard.state.wordTranscription}</i>] - <b>${ctx.wizard.state.wordInUkrainian}</b>`,getMainMenu()
             );
-            console.log(`You have added a new word: ${ctx.wizard.state.wordInEnglish} [${ctx.wizard.state.wordTranscription}] - ${ctx.wizard.state.wordInUkrainian}`);
+            console.log(`You have added a new word: ${ctx.wizard.state.wordInEnglish} [${ctx.wizard.state.wordTranscription}>] - ${ctx.wizard.state.wordInUkrainian}`);
             return ctx.scene.leave(); // Выход.
         } 
     )
