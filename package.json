@@ -19,5 +19,6 @@
   "homepage": "https://github.com/AlexandrRzz/engTGBot#readme",
   "dependencies": {
     "telegraf": "^3.38.0"
-  }
+  },
+  "type": "module"
 }

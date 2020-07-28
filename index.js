@@ -1,9 +1,10 @@
-const { Telegraf } = require('telegraf')
+import Telegraf from 'telegraf';
+import { getMainMenu } from './keyboards.js';
  
 const bot = new Telegraf(process.env.BOT_TOKEN_ENG)
-bot.start((ctx) => ctx.reply('Welcome!'))
-bot.help((ctx) => ctx.reply('Send me a sticker'))
-bot.on('sticker', (ctx) => ctx.reply('👍'))
-bot.hears('hi', (ctx) => ctx.reply('Hey there'))
-bot.launch()
+
+bot.start((ctx) => ctx.reply(
+    `How can I help you, ${ctx.from.first_name}?`,getMainMenu()));
+
+    bot.launch()
 
