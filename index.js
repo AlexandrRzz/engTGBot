@@ -12,6 +12,11 @@ bot.use(session());
 bot.start((ctx) => ctx.reply(
     `How can I help you, ${ctx.from.first_name}?`,getMainMenu()));
 
+/* bot.on('text', ctx => {
+    //console.log(ctx.message.from);
+    ctx.reply('just text')
+})   */  
+
 // Создаем менеджер сцен
 const stage = new Stage();
 // Регистрируем сцену создания нового слова
