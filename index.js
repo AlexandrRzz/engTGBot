@@ -4,6 +4,7 @@ import Stage from 'telegraf/stage.js';
 
 import { getMainMenu } from './keyboards.js';
 import { addWordScene } from './scenes.js';
+import { showDictionary} from './db.js';
  
 const bot = new Telegraf(process.env.BOT_TOKEN_ENG)
 
@@ -24,6 +25,10 @@ stage.register(addWordScene());
 bot.use(stage.middleware());
 
 bot.action("ADD_WORD", (ctx) => ctx.scene.enter("create"));
+bot.action("DICTIONARY", (ctx) => {
+        ctx.replyWithHTML(showDictionary(),{parse_mode: 'Html'})
+    }
+);
 
 bot.launch()
 
